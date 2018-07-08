@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <h1>Beit <span lang='ar'> بيت</span></h1>
+
+  <h2>Add a posting</h2>
+
+  <form action="/postings" method="POST">
+    <label for="name">Refugee Name</label>
+    <input type="text" name="name" placeholder="enter your name">
+
+    <label for="location">Where Are You?</label>
+    <input type="text" name="location" placeholder="enter your current location">
+
+    <label for="status">I am Looking for:</label>
+    <select id="status" class="" name="status">
+      <option value="shelter" selected="selected">shelter</option>
+      <option value="food">food</option>
+      <option value="shower">shower</option>
+      <option value="hosted">hosted</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <ul class="postings">
+    <% for(var i=0; i<postings.length; i++) {%>
+      <li class="posting">
+        <h3><%= postings[i].name %></h3>
+        <p>
+          <%= postings[i].location %>
+        </p>
+        <p>
+          <%= postings[i].status %>
+        </p>
+
+        <button type="button" name="button" class="change-status">Change Status</button>
+        <button type="button" name="button" class="delete-posting">Delete Posting</button>
+      </li>
+      <% } %>
+  </ul>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
